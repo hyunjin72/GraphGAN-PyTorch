@@ -1,3 +1,5 @@
+import os
+
 modes = ["gen", "dis"]
 
 # training settings
@@ -34,16 +36,16 @@ dataset = "CA-GrQc"
 PATH = ""
 
 # path settings
-train_filename = PATH + 'data/' + dataset + "_train.txt"
-test_filename = PATH + 'data/' + dataset + "_test.txt"
-test_neg_filename = PATH + 'data/' + dataset + "_test_neg.txt"
-pretrain_emb_filename_d = PATH + 'pre_train/' + dataset + "_pre_train.emb"
-pretrain_emb_filename_g = PATH + 'pre_train/' + dataset + "_pre_train.emb"
+train_filename = os.path.join(PATH, 'data', app, dataset + "_train.txt")
+test_filename = os.path.join(PATH, 'data', app, dataset + "_test.txt")
+test_neg_filename = os.path.join(PATH, 'data', app, dataset + "_test_neg.txt")
+pretrain_emb_filename_d = os.path.join(PATH, 'pre_train', app, dataset + "_pre_train.emb")
+pretrain_emb_filename_g = os.path.join(PATH, 'pre_train', app, dataset + "_pre_train.emb")
 
-emb_filenames = [PATH + 'results/' + dataset + "_gen_.emb",
-                 PATH + 'results/' + dataset + "_dis_.emb"]
+emb_filenames = [os.path.join(PATH, 'results', dataset + "_gen_.emb"),
+                 os.path.join(PATH, 'results', dataset + "_dis_.emb")]
 
-result_filename = PATH + 'results/' + dataset + "_result" + "_.txt"
+result_filename = os.path.join(PATH, 'results', dataset + "_result" + "_.txt")
 
-cache_filename = PATH + 'cache/' + dataset + ".pkl"
-model_log = PATH + 'results/'
+cache_filename = os.path.join(PATH, 'cache', dataset + ".pkl")
+model_log = os.path.join(PATH, 'results/')
