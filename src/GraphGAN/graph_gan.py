@@ -301,7 +301,7 @@ def train(generator, discriminator, n_node, graph, root_nodes, trees, device):
                 node_embedding, node_neighbor_embedding, prob = generator(np.array(node_1[start:end]), np.array(node_2[start:end]))
                 reward_p = reward[start:end]
 
-                g_loss = torch.mean(torch.log(prob)*reward_p) + config.lambda_gen * (torch.sum(node_embedding**2)/2+
+                g_loss = -torch.mean(torch.log(prob)*reward_p) + config.lambda_gen * (torch.sum(node_embedding**2)/2+
                 torch.sum(node_neighbor_embedding**2)/2)
 
                 g_loss.backward()
